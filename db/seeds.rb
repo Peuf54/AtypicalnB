@@ -11,9 +11,12 @@ require 'geocoder'
 
 Booking.destroy_all
 Property.destroy_all
+User.destroy_all
+
+User.create!({email: "test@test.com", password: "password", first_name: "Hugo", last_name: "Petament", overview: "Web Dev", phone_number: "+33 33 33 33 33"})
 
 
-@user_id = 1
+@user_id = User.last.id
 
 file1 = File.open("db/image/spongebobhouse.png")
 file2 = File.open("db/image/bob1.jpg")
@@ -115,7 +118,7 @@ city: "La Rochelle",
 zipcode: "17000",
 overview: "Special house for your cat, with Laurent, the special guest houser with nine lifes. Be careful, in this house you will have earthquake, thunderstorm, tsunami, no electricity etc",
 rating: 1,
-price_per_night: 0,
+price_per_night: 149,
 guest_capacity: 1,
 user_id: @user_id
 )

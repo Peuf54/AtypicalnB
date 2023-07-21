@@ -1,6 +1,8 @@
 <header>
   <% if current_user&.owner_mode %>
-    <a href="/"><img src="https://i.ibb.co/mDsg2HP/test-logo-720.png" alt="Logo" width="150"></a>
+    <%= link_to revenue_path do %>
+    <%= image_tag 'https://i.ibb.co/mDsg2HP/test-logo-720.png', width: 150 %>
+    <% end %>
     <ul class="header-menu-container">
       <li><%= link_to 'My Properties', owner_properties_path, class: "owner-mode-on #{'color-active' if current_page?(owner_properties_path)}" %></li>
       <li><%= link_to 'My Next Guests', owner_bookings_path, class: "owner-mode-on #{'color-active' if current_page?(owner_bookings_path)}" %></li>
@@ -35,7 +37,9 @@
       </div>
     </div>
   <% elsif current_user&.owner_mode == false %>
-    <a href="/"><img src="https://i.ibb.co/mDsg2HP/test-logo-720.png" alt="Logo" width="150"></a>
+    <%= link_to root_path do %>
+    <%= image_tag 'https://i.ibb.co/mDsg2HP/test-logo-720.png', width: 150 %>
+    <% end %>
     <ul class="header-menu-container">
       <li><%= link_to 'Our experiences', properties_path, class: "#{'color-active' if current_page?(properties_path)}"%></li>
       <li><%= link_to 'My Reservations', bookings_path, class: "#{'color-active' if current_page?(bookings_path)}"%></li>

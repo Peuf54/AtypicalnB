@@ -21,5 +21,12 @@ p {
 
 .mapboxgl-popup-content {
   width: 200px;
-  height: auto
+  height: auto;
+
+  margin-bottom: 15px;
+  overflow: visible;
+
+  img {
+    max-height: 150px;
+  }
 }
