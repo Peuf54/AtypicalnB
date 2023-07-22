@@ -44,7 +44,8 @@
       <% @properties.sort_by! { |hash| hash[:revenue] } %>
       <% @properties.reverse! %>
       <% top_sellers = @properties.first(3) %>
-      <div class="podium-container">
+      <% if @properties.length >= 3 %>
+        <div class="podium-container">
         <% @property1 =  top_sellers[0] %>
         <% @property2 =  top_sellers[1] %>
         <% @property3 =  top_sellers[2] %>
@@ -70,6 +71,7 @@
           </div>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 

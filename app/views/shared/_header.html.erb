@@ -14,7 +14,11 @@
           <%= link_to user_path(current_user) do %>
           <li class="dropdown-item">
             <div class="nav-dropdown-div">
-              <img src="https://res.cloudinary.com/dfuzqnyhu/image/upload/c_crop,h_565,w_565,x_0/v1686910297/samples/people/smiling-man.jpg" class="avatar-small">
+              <% if current_user.photo.key %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar-small", width: 120, height: 120 %>
+              <% else %>
+                <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" class="avatar-small">
+              <% end %>
               <p class="nav-dropdown-name"><%= current_user.first_name %> <%= current_user.last_name %></p>
               <hr class="nav-separator-line">
             </div>
